@@ -4,14 +4,15 @@ import { getAllCurrency } from "../duck/operations";
 import { Button, Card } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { addToFavourite } from "./addToFavourite";
-const Exchangers = ({ exchange, favourite, getAllCurrency }) => {
+const Exchangers = ({ exchange, getAllCurrency }) => {
   useEffect(() => {
     getAllCurrency();
+    
   }, []);
 
   return (
     <>
-      {exchange.list.map((currency) => {
+      {exchange.list.map((currency,index) => {
         return (
           <Card key={currency} style={{ width: "18rem" }}>
             <Card.Body>
