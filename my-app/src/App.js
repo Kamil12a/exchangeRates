@@ -1,10 +1,13 @@
-import Excharges from './exchangers/components/excharges'
-
+import { MainExchanges } from "./views/MainExchanges";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import {FavouriteExchanges} from "./views/FavouriteExchanges"
 function App() {
   return (
-    <div className="App">
-        <Excharges/>
-    </div>
+    <Router>
+      <Route path="/home" component={MainExchanges}/>
+      <Route path="/" exact component={MainExchanges}/>
+      <Route path="/favourite" component={FavouriteExchanges}/>
+    </Router>
   );
 }
 

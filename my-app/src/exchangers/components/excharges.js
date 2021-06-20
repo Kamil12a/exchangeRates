@@ -3,19 +3,22 @@ import { connect } from "react-redux";
 import { getAllCurrency } from "../duck/operations";
 import { Button, Card } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-const Exchangers = ({ exchange, getAllCurrency }) => {
+import { addToFavourite } from "./addToFavourite";
+const Exchangers = ({ exchange, favourite, getAllCurrency }) => {
   useEffect(() => {
     getAllCurrency();
   }, []);
+
   return (
     <>
       {exchange.list.map((currency) => {
         return (
-          <Card key={currency[0]} style={{ width: "18rem" }}>
+          <Card key={currency} style={{ width: "18rem" }}>
             <Card.Body>
-              <Card.Title>{currency[0]}</Card.Title>
-              <Card.Text>wartość: {currency[1]}</Card.Text>
-              <Button variant="primary">Dodaj do ulubionych</Button>
+              <Card.Title>{currency}</Card.Title>
+              <Button id={currency} onClick={addToFavourite} variant="primary">
+                Dodaj do ulubionych
+              </Button>
             </Card.Body>
           </Card>
         );
@@ -26,6 +29,7 @@ const Exchangers = ({ exchange, getAllCurrency }) => {
 
 const mapStateToProps = (state) => ({
   exchange: state.exchanges,
+  favourite: state.favourite,
 });
 
 const mapDispatchToProps = (dispatch) => ({
