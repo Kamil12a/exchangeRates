@@ -17,6 +17,7 @@ const Exchangers = ({ exchange, getAllCurrency }) => {
           <Card key={currency} style={{ width: "18rem" }}>
             <Card.Body>
               <Card.Title>{currency}</Card.Title>
+              <Card.Title>{exchange.values[index]}</Card.Title>
               <Button id={currency} onClick={addToFavourite} variant="primary">
                 Dodaj do ulubionych
               </Button>
