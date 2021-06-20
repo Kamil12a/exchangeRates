@@ -17,8 +17,9 @@ export const getAllCurrency = () => async (dispatch) => {
   const currencies = currency[0].rates;
 
   currencies.map((element) => {
-    
-    store.dispatch({ type: "ADD_EXCHANGES", item: [element.currency, element.mid]});
-    console.log(store.getState())
+    store.dispatch({
+      type: "ADD_EXCHANGES",
+      item: [element.currency, element.mid],
+    });
   });
 };

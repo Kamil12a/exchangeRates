@@ -9,8 +9,17 @@ const Exchangers = ({ exchange, getAllCurrency }) => {
   }, []);
   return (
     <>
-     
-    
+      {exchange.list.map((currency) => {
+        return (
+          <Card key={currency[0]} style={{ width: "18rem" }}>
+            <Card.Body>
+              <Card.Title>{currency[0]}</Card.Title>
+              <Card.Text>wartość: {currency[1]}</Card.Text>
+              <Button variant="primary">Dodaj do ulubionych</Button>
+            </Card.Body>
+          </Card>
+        );
+      })}
     </>
   );
 };
@@ -25,4 +34,4 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-export default connect(mapStateToProps,mapDispatchToProps)(Exchangers);
+export default connect(mapStateToProps, mapDispatchToProps)(Exchangers);
