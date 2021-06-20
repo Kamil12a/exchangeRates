@@ -1,4 +1,4 @@
-import Excharges from '../src/app/components/excharges'
+import Excharges from './exchangers/components/excharges'
 
 function App() {
   return (
