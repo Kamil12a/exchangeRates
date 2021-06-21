@@ -13,11 +13,12 @@ const FavouriteExchanges = ({ favourite, getAllFavourite }) => {
 
   return (
     <>
-      {favourite.list.map((currency) => {
+      {favourite.list.map((currency,index) => {
         return (
           <Card key={currency} style={{ width: "18rem" }}>
             <Card.Body>
               <Card.Title>{currency}</Card.Title>
+              <Card.Title>{ <Card.Title>{favourite.values[index]}</Card.Title>}</Card.Title>
               <Button
                 id={currency}
                 onClick={deleteFromFavourite}
